@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>SIMPLEX TOOL
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/styling.css">
+		<script>
+			function generate()
+			{
+				console.log(3+5);
+				var string='<form method="post" action="SIMPLEX.php"><h2>Optimisation Objective:</h2><h3>';
+				var m=document.getElementById('m').value;
+				var n=document.getElementById('n').value;
+				var div= document.getElementById('div');
+				if((m!=0)&&(n!=0))
+				{
+					var i,j;
+					string+='<input type="text" name="m" hidden value="'+m+'"><input type="text" name="n" hidden value="'+n+'">'
+					for (j=0;j<n;j++)
+					{
+  						if(j==0)
+  						{
+  							string+='Z = ';
+  						}
+  						string+='<input type="text" name="x'+(j+1)+'">x'+(j+1);
+  						if (j+1!=n)
+						{
+  							string+=' + ';
+ 						}
+  					}
+					string+='</h3><h2>Subject to the constraints:</h2><h3>';
+					for (i = 0; i < m; i++) 
+					{
+  						for (j=0;j<n;j++)
+  						{
+  							string+='<input type="text" name="c'+(i+1)+'x'+(j+1)+'">x'+(j+1);
+  							if ((j+1)!=n)
+  							{
+  								string+=' + ';
+  							}
+  							else
+  							{	
+  								string+=' <=<input type="text" name="c'+(i+1)+'">';
+  							}
+  						}
+  						string+='<br><br>';
+					}
+					string+='</h3><h2>Click to submit: <input type="submit" value="Submit" title="Submit form" name="submit"></h2></form>';
+					div.style.color="black";
+					div.innerHTML=string;
+				}
+				else
+				{
+					div.innerHTML="Kindly fill both values to proceed";
+					div.style.color="red";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<img id="header" src="images/header.PNG" width="400" title="&quot;Welcome to our online interface&quot;" alt="SIMPLEX online interface"/>
+		</header>
+		<article>
+				<h1>
+					Number of constraints
+					<input type="text" id="m"><br>
+					Number of variables
+					<input type="text" id="n"><br><br>
+					<button  title="click to generate constraints" onclick="generate()">Generate</button>
+				</h1>
+				<div id="div">
+				</div>
+		</article>
+		<footer>
+			<p>This online interface was made as a part of our resarch work.</p> 
+		</footer>
+	</body>
+</html>
