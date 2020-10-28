@@ -1,7 +1,6 @@
 # SIMPLEX
-
 ---
-Implementation of Simplex in 3 languages namely:
+## Implementation of Simplex in 3 languages, namely:
 
 1. C
 2. PHP
