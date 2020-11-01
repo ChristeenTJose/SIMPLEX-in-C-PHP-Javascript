@@ -9,3 +9,7 @@
 3. Javascript
 
 ---
+
+Bugs to fix:
+1. Check infinite loop for 1 or -1
+2. Selection of (m or less)/n variables [JavaScript Code is updated]
